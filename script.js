@@ -23,22 +23,12 @@ document.querySelector('.check').addEventListener('click', function () {
 
     document.querySelector('body').style.backgroundColor = '#60b347';
     document.querySelector('.number').style.width = '30rem';
-    // When guess is too high
-  } else if (guess > secretNumber) {
-    if (score > 1) {
-      document.querySelector('.message').textContent = 'Too high!';
-      score--;
-      document.querySelector('.score').textContent = score;
-    } else {
-      score--;
-      document.querySelector('.score').textContent = score;
-      document.querySelector('.message').textContent = 'You lost the game!';
-    }
 
-    // When guess is too low
-  } else if (guess < secretNumber) {
+    // When guess is wrong
+  } else if (guess != secretNumber) {
     if (score > 1) {
-      document.querySelector('.message').textContent = 'Too low!';
+      document.querySelector('.message').textContent =
+        guess > secretNumber ? 'Too high!' : 'Too low!';
       score--;
       document.querySelector('.score').textContent = score;
     } else {
